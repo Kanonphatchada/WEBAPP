@@ -22,6 +22,12 @@ if(isset($_SESSION['id'])){
     <?php include "nav.php" ?>
     <div class="row mt-4">
         <div class="col-sm-8 col-md-6 col-lg-4 mx-auto"> 
+        <?php
+            if(isset($_SESSION['error'])){
+                echo "<div class ='alert alert-danger '>ชื่อบัญชีหรือรหัสผ่านไม่ถูกต้อง</div>";
+                unset($_SESSION['error']);
+            }
+        ?>
         <div class="card bg-light text-dark">
         <div class="card-header">
             เข้าสู่ระบบ
