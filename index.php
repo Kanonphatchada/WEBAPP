@@ -11,6 +11,20 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Webboard</title>
+    <style>
+        table a {
+            text-decoration: none;
+        }
+        table a:hover{
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function myFunction() {
+            let r = confirm("ต้องการลบจริงหรือไม่")
+            return r;
+        }
+    </script>
 </head>
  
 <body>
@@ -57,9 +71,16 @@ session_start();
             while ($row = $result->fetch()) {
                 echo "<tr><td> $row[0]  <a href=post.php?id=$row[2] 
                 style=text-decoration:none>$row[1]</a><br>$row[3] - $row[4]</td>";
-                
+            // เพิ่มปุ่มลบโพสต์
+            if (isset($_SESSION['id']) && $_SESSION['role'] == 'a') {
+                echo "<td><a href='delete.php?id=$row[2]' 
+                class='btn btn-danger btn-sm' 
+                onclick='return myFunction();'>
+                <i class='bi bi-trash'></i></a></td>";
             }
-            $conn=null;
+            echo "</tr>";
+            }
+            $conn = null;
             ?>
             
  

@@ -56,7 +56,7 @@ if(!isset($_SESSION['id'])){
                     <div class=col-lg-12>
                         <center>
                             <button type="submit" class="btn btn-info btn-sm text-white">
-                                <i class="bi bi-caret-right-sqquare me-1"></i>บันทึกข้อความ
+                                <i class="bi bi-caret-right-square me-1"></i>บันทึกข้อความ
                             </button>
                         </center>
                     </div>
